@@ -1,0 +1,33 @@
+# Keepalive for the free EMQX Serverless broker: a client that stays connected all the time,
+# so the deployment is never stopped for inactivity, even when both lamps are off.
+# Private values come from .env next to this file (copy .env.example to .env).
+services:
+  lamps-keepalive:
+    image: eclipse-mosquitto:2
+    container_name: lamps-keepalive
+    restart: unless-stopped
+    entrypoint: ["mosquitto_sub"]
+    command:
+      - "-h"
+      - "${MQTT_HOST}"
+      - "-p"
+      - "8883"
+      - "--cafile"
+      - "/etc/ssl/certs/ca-certificates.crt"
+      - "-u"
+      - "${MQTT_USER}"
+      - "-P"
+      - "${MQTT_PASS}"
+      - "-i"
+      - "homeserver-keepalive"
+      - "-k"
+      - "60"
+      - "-t"
+      - "${TOPIC_BASE}#"
+      - "-F"
+      - "%I  %t  %p"
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"

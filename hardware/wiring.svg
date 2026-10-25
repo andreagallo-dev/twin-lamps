@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 660" width="1000" height="660" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Twin Lamps wiring diagram for one lamp">
+  <title>Twin Lamps — wiring (one lamp)</title>
+  <rect x="0" y="0" width="1000" height="660" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="40" y="44" font-size="24" font-weight="700" fill="#1F2328">Twin Lamps — wiring (one lamp)</text>
+  <text x="40" y="70" font-size="14" fill="#57606A">Both lamps are wired the same way. Power comes from a 5 V 1 A USB charger into the ESP32's USB-C port.</text>
+
+  <!-- ===== ESP32 ===== -->
+  <rect x="380" y="110" width="220" height="400" rx="10" fill="#F6F8FA" stroke="#1F2328" stroke-width="2"/>
+  <text x="490" y="140" font-size="17" font-weight="700" text-anchor="middle" fill="#1F2328">ESP32 DevKit</text>
+  <text x="490" y="160" font-size="13" text-anchor="middle" fill="#57606A">WROOM-32, USB-C</text>
+  <!-- left pins -->
+  <text x="394" y="205" font-size="14" fill="#1F2328">VIN (5V)</text>
+  <text x="394" y="265" font-size="14" fill="#1F2328">GND</text>
+  <text x="394" y="325" font-size="14" fill="#1F2328">GPIO13</text>
+  <!-- right pins -->
+  <text x="586" y="205" font-size="14" text-anchor="end" fill="#1F2328">GPIO4 (T0)</text>
+  <text x="586" y="305" font-size="14" text-anchor="end" fill="#1F2328">3V3</text>
+  <text x="586" y="385" font-size="14" text-anchor="end" fill="#1F2328">GPIO34</text>
+  <text x="586" y="465" font-size="14" text-anchor="end" fill="#1F2328">GND</text>
+  <!-- USB-C -->
+  <rect x="465" y="500" width="50" height="22" rx="6" fill="#D0D7DE" stroke="#1F2328" stroke-width="1.5"/>
+  <text x="490" y="546" font-size="13" text-anchor="middle" fill="#57606A">USB-C ← 5 V 1 A USB charger</text>
+
+  <!-- ===== LED ring ===== -->
+  <rect x="60" y="150" width="170" height="250" rx="10" fill="#F6F8FA" stroke="#1F2328" stroke-width="2"/>
+  <text x="145" y="180" font-size="17" font-weight="700" text-anchor="middle" fill="#1F2328">WS2812B ring</text>
+  <text x="145" y="200" font-size="13" text-anchor="middle" fill="#57606A">16 LEDs, Ø 68 mm</text>
+  <text x="216" y="245" font-size="14" text-anchor="end" fill="#1F2328">5V</text>
+  <text x="216" y="285" font-size="14" text-anchor="end" fill="#1F2328">GND</text>
+  <text x="216" y="325" font-size="14" text-anchor="end" fill="#1F2328">DI</text>
+  <text x="216" y="365" font-size="14" text-anchor="end" fill="#8C959F">DO</text>
+  <text x="145" y="388" font-size="12" text-anchor="middle" fill="#8C959F">DO not connected</text>
+
+  <!-- 5V: ESP VIN -> ring 5V -->
+  <polyline points="380,200 345,200 345,240 230,240" fill="none" stroke="#D7263D" stroke-width="3"/>
+  <!-- GND: ESP GND -> ring GND -->
+  <polyline points="380,260 355,260 355,280 230,280" fill="none" stroke="#24292F" stroke-width="3"/>
+  <!-- C1 between 5V and GND, close to the ring -->
+  <line x1="290" y1="240" x2="290" y2="252" stroke="#D7263D" stroke-width="3"/>
+  <line x1="278" y1="252" x2="302" y2="252" stroke="#1F2328" stroke-width="3"/>
+  <path d="M278 262 Q290 256 302 262" fill="none" stroke="#1F2328" stroke-width="3"/>
+  <line x1="290" y1="260" x2="290" y2="280" stroke="#24292F" stroke-width="3"/>
+  <text x="272" y="252" font-size="13" text-anchor="end" fill="#1F2328">+</text>
+  <!-- C1 label, above the 5V wire -->
+  <text x="240" y="228" font-size="13" fill="#1F2328">C1 100 µF 50 V</text>
+  <!-- Data: GPIO13 -> R1 -> DI -->
+  <line x1="380" y1="320" x2="330" y2="320" stroke="#1E6FD9" stroke-width="3"/>
+  <rect x="280" y="312" width="50" height="16" fill="#FFFFFF" stroke="#1F2328" stroke-width="2"/>
+  <line x1="280" y1="320" x2="230" y2="320" stroke="#1E6FD9" stroke-width="3"/>
+  <text x="305" y="350" font-size="13" text-anchor="middle" fill="#1F2328">R1 330 Ω</text>
+
+  <!-- ===== Touch hook ===== -->
+  <rect x="760" y="160" width="200" height="80" rx="10" fill="#F6F8FA" stroke="#1F2328" stroke-width="2"/>
+  <text x="860" y="190" font-size="15" font-weight="700" text-anchor="middle" fill="#1F2328">Metal hook (touch)</text>
+  <text x="860" y="210" font-size="12" text-anchor="middle" fill="#57606A">on the box, through M2 bolts;</text>
+  <text x="860" y="226" font-size="12" text-anchor="middle" fill="#57606A">paint scraped under the nut</text>
+  <line x1="600" y1="200" x2="760" y2="200" stroke="#E07B00" stroke-width="3"/>
+
+  <!-- ===== Photoresistor divider ===== -->
+  <!-- 3V3 -> LDR -->
+  <polyline points="600,300 700,300 700,312" fill="none" stroke="#8250DF" stroke-width="3"/>
+  <rect x="690" y="312" width="20" height="44" fill="#FFFFFF" stroke="#1F2328" stroke-width="2"/>
+  <!-- light arrows -->
+  <line x1="744" y1="314" x2="718" y2="328" stroke="#1F2328" stroke-width="1.5"/>
+  <path d="M718 328 L727 327 L723 321 Z" fill="#1F2328"/>
+  <line x1="744" y1="330" x2="718" y2="344" stroke="#1F2328" stroke-width="1.5"/>
+  <path d="M718 344 L727 343 L723 337 Z" fill="#1F2328"/>
+  <text x="756" y="330" font-size="14" fill="#1F2328">Photoresistor</text>
+  <text x="756" y="347" font-size="12" fill="#57606A">facing outside the box</text>
+  <!-- node -> GPIO34 -->
+  <line x1="700" y1="356" x2="700" y2="400" stroke="#8250DF" stroke-width="3"/>
+  <line x1="700" y1="380" x2="600" y2="380" stroke="#8250DF" stroke-width="3"/>
+  <circle cx="700" cy="380" r="5" fill="#1F2328"/>
+  <!-- 10k -> GND -->
+  <rect x="690" y="400" width="20" height="44" fill="#FFFFFF" stroke="#1F2328" stroke-width="2"/>
+  <text x="722" y="427" font-size="14" fill="#1F2328">10 kΩ</text>
+  <polyline points="700,444 700,460 600,460" fill="none" stroke="#24292F" stroke-width="3"/>
+
+  <!-- pin dots -->
+  <g fill="#1F2328">
+    <circle cx="380" cy="200" r="5"/><circle cx="380" cy="260" r="5"/><circle cx="380" cy="320" r="5"/>
+    <circle cx="600" cy="200" r="5"/><circle cx="600" cy="300" r="5"/><circle cx="600" cy="380" r="5"/><circle cx="600" cy="460" r="5"/>
+    <circle cx="230" cy="240" r="5"/><circle cx="230" cy="280" r="5"/><circle cx="230" cy="320" r="5"/>
+    <circle cx="760" cy="200" r="5"/>
+  </g>
+  <circle cx="230" cy="360" r="5" fill="#8C959F"/>
+
+  <!-- ===== Notes ===== -->
+  <line x1="40" y1="572" x2="960" y2="572" stroke="#D0D7DE" stroke-width="1"/>
+  <text x="40" y="598" font-size="13" fill="#1F2328">• C1: stripe (−) to GND, as close to the ring as possible.   • R1 in series on the data line.   • Use DI, never DO.</text>
+  <text x="40" y="620" font-size="13" fill="#1F2328">• GPIO34 is input-only and works with Wi-Fi on (ADC1). More light = higher reading.   • Touch: one wire from GPIO4 to the hook.</text>
+  <text x="40" y="642" font-size="13" fill="#1F2328">• At full brightness the ring draws up to ~0.5 A: power from a 1 A charger, not from a PC port.</text>
+</svg>

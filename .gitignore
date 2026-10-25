@@ -1,0 +1,11 @@
+# Private values: never commit them
+secrets.h
+.env
+
+# Arduino build output and exported firmware (they contain the credentials)
+build/
+*.bin
+
+# OS and editor files
+.DS_Store
+*~
